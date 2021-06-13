@@ -3,6 +3,7 @@ import { CheckBox } from './CheckBox';
 //import { scoreData } from './scoreData';
 import { DataModel } from './DataModel';
 import { SelectEvent } from './SelectEvent';
+import { GlobalData } from './GlobalData';
 
 
 export class SignInView extends Component {
@@ -37,7 +38,7 @@ export class SignInView extends Component {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(this.state.sign_in_data)
       };
-      const response = await fetch('/api/sign-in/', requestOptions);
+      const response = await fetch(GlobalData.apiPrefix() +'/api/sign-in/', requestOptions);
       const data = await response.json();
     }
   }
@@ -62,7 +63,7 @@ export class SignInView extends Component {
     this.postUpdate();
     if (eventID) {
       console.log("event change: " + eventID);
-      fetch('/api/sign-in/' + eventID)
+      fetch( GlobalData.apiPrefix() + '/api/sign-in/' + eventID)
         .then(response => response.json())
         .then(result => {
           this.setState({ sign_in_data: result, isFetching: false })

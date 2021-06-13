@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route } from 'react-router';
+import { Layout } from './components/Layout';
+import { Home } from './components/Home';
+import { FetchData } from './components/FetchData';
+import { Counter } from './components/Counter';
+import { ScoreEntry } from './components/ScoreEntry';
+import { SignInView } from './components/SignInView';
+import { ResultsView } from './components/ResultsView';
+import { MatchPlay } from './components/MatchPlay';
+import { SeasonSummary } from './components/SeasonSummary';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './custom.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default class App extends Component {
+  static displayName = App.name;
+
+  render () {
+    return (
+        <Layout>
+          <Route exact path='/' component={Home} />
+          <Route path='/enter-scores' component={ScoreEntry} /> 
+          <Route path='/counter' component={Counter} />
+          <Route path='/fetch-data' component={FetchData} /> 
+          <Route path='/sign-in' component={SignInView} /> 
+          <Route path='/results' component={ResultsView} /> 
+          <Route path='/match-play' component={MatchPlay} /> 
+          <Route path='/season-summary' component={SeasonSummary} /> 
+
+        </Layout>
+    );
+  }
 }
-
-export default App;
