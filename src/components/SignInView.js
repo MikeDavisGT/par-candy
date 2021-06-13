@@ -55,8 +55,8 @@ export class SignInView extends Component {
      });
     this.setState({ sign_in_data: signinCopy });
 
-    console.log("stateChange: " + rosterItemID + " " + value);
-  }
+    console.log("stateChange : " + rosterItemID + " " + value);
+  } 
 
 
   handleEventChange(eventID) {

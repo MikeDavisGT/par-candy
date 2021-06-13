@@ -6,7 +6,7 @@ export class Home extends Component {
   render () {
     return (
       <div>
-        <p>Welcome to The Tomahawk Men's League Home</p>
+        <p>Welcome to The Tomahawk Men's League Home...deployed!</p>
       </div>
     );
   }
